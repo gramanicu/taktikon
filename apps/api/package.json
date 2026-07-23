@@ -8,19 +8,28 @@
     "build": "tsup",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "gen:openapi": "tsx scripts/gen-openapi.ts"
+    "test": "vitest run --project unit",
+    "test:integration": "vitest run --project integration",
+    "test:watch": "vitest --project unit",
+    "gen:openapi": "tsx scripts/gen-openapi.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node --env-file=../../.env --import tsx db/migrate.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1",
     "@hono/zod-openapi": "^1",
+    "drizzle-orm": "^0.44",
     "hono": "^4",
+    "ioredis": "^5",
     "neverthrow": "catalog:",
+    "postgres": "^3",
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@testcontainers/postgresql": "^11",
     "@types/node": "catalog:",
+    "drizzle-kit": "^0.31",
+    "testcontainers": "^11",
     "tsup": "^8",
     "tsx": "^4",
     "typescript": "catalog:",
