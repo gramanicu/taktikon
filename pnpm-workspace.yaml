@@ -1,0 +1,14 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+catalog:
+  '@types/node': ^24
+  neverthrow: ^8
+  typescript: ^5
+  vitest: ^3
+  zod: ^4
+
+allowBuilds:
+  esbuild: true
+  lefthook: true

@@ -7,7 +7,7 @@
 ## Locked Decisions
 
 - **Backend language:** TypeScript / JavaScript.
-- **Git model:** trunk-based, single `main` branch, feature-flag gated. See
+- **Git model:** trunk-based, single `master` branch, feature-flag gated. See
   [`GIT-WORKFLOW.md`](./GIT-WORKFLOW.md).
 
 ## Under Consideration *(provisional)*
