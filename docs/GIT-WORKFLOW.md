@@ -54,3 +54,17 @@ a tag + deploy, not a merge dance.
 
 A hotfix is just a short feature branch off `master` with a `fix:` PR — no separate
 long-lived branch, no cherry-picking between release lines.
+
+## Specs & Decision Records
+
+Planning specs are **ephemeral**; decision records are **permanent and lean**.
+
+- **Specs** (`docs/superpowers/specs/`) capture a design while it's being built. They are
+  working artifacts: keep them only through the review + implementation cycle, then remove
+  them from `HEAD` once the work has landed. Git history still holds them.
+- **ADRs** (`docs/adr/`) are the durable record — one decision per file, a few lines each,
+  written as each piece is implemented (not all upfront). This is what future contributors
+  read.
+
+The goal is a small, maintained permanent doc set. Uncurated specs that are never pruned
+rot into misleading noise, so prune them.
