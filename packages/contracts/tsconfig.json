@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // The generated client targets the Fetch API, so it needs the web/DOM lib types.
+    "lib": ["ES2022", "DOM"],
+    "types": ["node"],
+    // Generated client code is not held to our hand-written strictness; the built .d.ts
+    // is what consumers see (and skipLibCheck skips it), so this stays local to the package.
+    "allowImportingTsExtensions": false,
+    "exactOptionalPropertyTypes": false
+  },
+  "include": ["src"]
+}

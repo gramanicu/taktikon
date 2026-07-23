@@ -12,6 +12,9 @@ out/
 # Generated OpenAPI contract (regenerated from the API via `gen:openapi`)
 apps/api/openapi.json
 
+# Generated API client (regenerated from the spec via `pnpm gen`)
+packages/contracts/src/generated/
+
 # ─── Caches ──────────────────────────────────────────────────────────────────
 .cache/
 .turbo/

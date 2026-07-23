@@ -1,12 +1,19 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "gen:openapi": {
+      "outputs": ["openapi.json"]
+    },
+    "generate": {
+      "dependsOn": ["@taktikon/api#gen:openapi"],
+      "outputs": ["src/generated/**"]
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "generate"],
       "outputs": ["dist/**"]
     },
     "typecheck": {
-      "dependsOn": ["^typecheck"]
+      "dependsOn": ["^build", "generate"]
     },
     "lint": {},
     "test": {
