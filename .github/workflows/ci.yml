@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # TODO: wire real steps once the stack is locked, e.g.:
+      #   - install dependencies (npm/pnpm/bun)
+      #   - lint
+      #   - typecheck
+      #   - test
+      - name: Placeholder
+        run: echo "CI placeholder — add install / lint / typecheck / test once the stack is chosen."
