@@ -25,6 +25,10 @@ coverage/
 .claude/settings.local.json
 CLAUDE.local.md
 
+# ─── Local shell env (direnv) ────────────────────────────────────────────────
+.envrc
+.direnv/
+
 # ─── Logs ────────────────────────────────────────────────────────────────────
 logs/
 *.log

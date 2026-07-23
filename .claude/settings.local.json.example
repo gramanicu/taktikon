@@ -1,5 +1,5 @@
 {
   "env": {
-    "GH_TOKEN": "github_pat_REPLACE_WITH_YOUR_FINE_GRAINED_TOKEN"
+    "GH_CONFIG_DIR": "/absolute/path/to/.config/gh-taktikon"
   }
 }
