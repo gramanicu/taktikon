@@ -1,5 +1,8 @@
 # Domain Glossary
 
+> **WIP — not set in stone.** These terms are provisional and expected to change as the
+> domain is fleshed out. Do not treat any name here as locked.
+
 Generic, system-agnostic vocabulary for the app.
 
 | Term | Meaning |
