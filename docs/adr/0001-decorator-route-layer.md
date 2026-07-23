@@ -24,6 +24,11 @@ Adopt **TC39 Stage 3 (standard) decorators** for HTTP routes. Explicitly:
 - An explicit `register(app, Controller, instance)` reads the metadata and, per method,
   builds a `@hono/zod-openapi` `createRoute(...)` and calls `app.openapi(route, handler)`.
   DI stays explicit — the instance is constructed by the caller and passed in.
+- Two handler styles, chosen per handler: **return-based** (preferred — omit `Context`,
+  read input via typed ALS accessors `params`/`query`/`body`, `return` plain data which
+  `register` serializes at the first declared 2xx status) and an **escape hatch** (take
+  `c: Context`, return a `Response`). Typed `Result → status` mapping arrives with the
+  error-handling layer.
 - Lives in `apps/api/src/kit/` for now; extract to `packages/hono-kit` when a second
   Hono service exists.
 
