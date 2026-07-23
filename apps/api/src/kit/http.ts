@@ -73,13 +73,46 @@ export const Body = (schema: ZodType) => (_v: unknown, context: ClassMethodDecor
   routeMeta(controllerMeta(context.metadata), context.name).body = schema
 }
 
+/** HTTP status codes as an `as const` map (no `enum`, per conventions). */
+export const Status = {
+  Ok: 200,
+  Created: 201,
+  Accepted: 202,
+  NoContent: 204,
+  BadRequest: 400,
+  Unauthorized: 401,
+  Forbidden: 403,
+  NotFound: 404,
+  Conflict: 409,
+  UnprocessableEntity: 422,
+  TooManyRequests: 429,
+  Internal: 500,
+  ServiceUnavailable: 503,
+} as const
+
+const reasonPhrase: Record<number, string> = {
+  200: 'OK',
+  201: 'Created',
+  202: 'Accepted',
+  204: 'No Content',
+  400: 'Bad Request',
+  401: 'Unauthorized',
+  403: 'Forbidden',
+  404: 'Not Found',
+  409: 'Conflict',
+  422: 'Unprocessable Entity',
+  429: 'Too Many Requests',
+  500: 'Internal Server Error',
+  503: 'Service Unavailable',
+}
+
 export const Produces =
-  (status: number, schema: ZodType, description = 'Response') =>
+  (status: number, schema: ZodType, description?: string) =>
   (_v: unknown, context: ClassMethodDecoratorContext) => {
     routeMeta(controllerMeta(context.metadata), context.name).responses.push({
       status,
       schema,
-      description,
+      description: description ?? reasonPhrase[status] ?? 'Response',
     })
   }
 

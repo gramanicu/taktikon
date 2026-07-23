@@ -1,5 +1,6 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { register } from './kit/http.ts'
+import { requestContextMiddleware } from './lib/request-context.ts'
 import { HealthController } from './modules/health/health.controller.ts'
 
 const openApiInfo = {
@@ -9,6 +10,8 @@ const openApiInfo = {
 
 export const createApp = () => {
   const app = new OpenAPIHono()
+
+  app.use('*', requestContextMiddleware())
 
   register(app, HealthController, new HealthController())
   app.doc('/doc', openApiInfo)
