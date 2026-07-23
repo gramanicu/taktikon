@@ -9,6 +9,9 @@ build/
 out/
 *.tsbuildinfo
 
+# Generated OpenAPI contract (regenerated from the API via `gen:openapi`)
+apps/api/openapi.json
+
 # ─── Caches ──────────────────────────────────────────────────────────────────
 .cache/
 .turbo/
