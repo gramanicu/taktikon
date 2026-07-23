@@ -1,5 +1,6 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
-import { healthRoutes } from './modules/health/health.routes.ts'
+import { register } from './kit/http.ts'
+import { HealthController } from './modules/health/health.controller.ts'
 
 const openApiInfo = {
   openapi: '3.1.0',
@@ -9,7 +10,7 @@ const openApiInfo = {
 export const createApp = () => {
   const app = new OpenAPIHono()
 
-  app.route('/', healthRoutes)
+  register(app, HealthController, new HealthController())
   app.doc('/doc', openApiInfo)
 
   return app
