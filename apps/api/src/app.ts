@@ -15,6 +15,8 @@ const openApiInfo = {
  */
 export type AppDeps = {
   authHandler?: (request: Request) => Response | Promise<Response>
+  /** Registrars for decorated controllers, wired at the composition root. */
+  controllers?: Array<(app: OpenAPIHono) => void>
 }
 
 export const createApp = (deps: AppDeps = {}) => {
@@ -23,6 +25,10 @@ export const createApp = (deps: AppDeps = {}) => {
   app.use('*', requestContextMiddleware())
 
   register(app, HealthController, new HealthController())
+
+  for (const mount of deps.controllers ?? []) {
+    mount(app)
+  }
 
   const authHandler = deps.authHandler
   if (authHandler) {

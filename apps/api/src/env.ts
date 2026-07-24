@@ -15,6 +15,8 @@ const EnvSchema = z.object({
   // resolve to their in-code defaults.
   UNLEASH_URL: z.string().url().optional(),
   UNLEASH_TOKEN: z.string().optional(),
+  // Pepper for hashing registration emails. Required to enable register/forgot-password.
+  EMAIL_HASH_PEPPER: z.string().min(1).optional(),
 })
 
 export const env = EnvSchema.parse(process.env)

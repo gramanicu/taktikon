@@ -25,7 +25,7 @@ describe('auth', () => {
     const migrationClient = postgres(uri, { max: 1 })
     await migrate(drizzle(migrationClient), { migrationsFolder: './db/migrations' })
     await migrationClient.end()
-    ;({ auth, close } = createAuth(uri, SECRET, 'http://localhost:3000'))
+    ;({ auth, close } = createAuth(uri, SECRET, { baseURL: 'http://localhost:3000' }))
   })
 
   afterAll(async () => {
