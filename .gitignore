@@ -22,6 +22,11 @@ blob-report/
 # ─── Storybook ───────────────────────────────────────────────────────────────
 storybook-static/
 
+# ─── Terraform (commit .terraform.lock.hcl to pin provider checksums) ────────
+infra/terraform/**/.terraform/
+infra/terraform/**/*.tfstate
+infra/terraform/**/*.tfstate.*
+
 # Generated OpenAPI contract (regenerated from the API via `gen:openapi`)
 apps/api/openapi.json
 
