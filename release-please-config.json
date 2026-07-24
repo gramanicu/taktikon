@@ -5,7 +5,8 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "taktikon"
+      "package-name": "taktikon",
+      "release-as": "0.1.0"
     }
   },
   "plugins": ["node-workspace"]
