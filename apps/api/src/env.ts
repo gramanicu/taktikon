@@ -11,6 +11,10 @@ const EnvSchema = z.object({
   // Public base URL of the API, used by auth for callback/reset links.
   AUTH_URL: z.string().url().optional(),
   LOG_LEVEL: z.enum(['error', 'warn', 'info', 'debug']).default('info'),
+  // Feature flags: when both are set, the Unleash provider is used; otherwise flags
+  // resolve to their in-code defaults.
+  UNLEASH_URL: z.string().url().optional(),
+  UNLEASH_TOKEN: z.string().optional(),
 })
 
 export const env = EnvSchema.parse(process.env)

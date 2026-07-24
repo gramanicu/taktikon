@@ -1,13 +1,25 @@
 import { serve } from '@hono/node-server'
 import { createApp } from './app.ts'
 import { env } from './env.ts'
+import { initFlags } from './lib/flags.ts'
 import { logger } from './lib/logger.ts'
+import { createUnleashProvider } from './lib/unleash-provider.ts'
 import { createAuth } from './modules/identity/auth.ts'
 
 // Composition root: build dependencies from the validated env, then assemble the app.
 if (!env.DATABASE_URL || !env.AUTH_SECRET) {
   throw new Error('DATABASE_URL and AUTH_SECRET are required to start the server')
 }
+
+await initFlags(
+  env.UNLEASH_URL && env.UNLEASH_TOKEN
+    ? createUnleashProvider({
+        url: env.UNLEASH_URL,
+        appName: 'taktikon-api',
+        token: env.UNLEASH_TOKEN,
+      })
+    : undefined,
+)
 
 const { auth } = createAuth(
   env.DATABASE_URL,

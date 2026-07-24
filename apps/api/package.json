@@ -20,6 +20,7 @@
   "dependencies": {
     "@hono/node-server": "^1",
     "@hono/zod-openapi": "^1",
+    "@openfeature/server-sdk": "^1.22.0",
     "@opentelemetry/api": "^1.9.1",
     "@opentelemetry/auto-instrumentations-node": "^0.78.0",
     "@opentelemetry/exporter-logs-otlp-proto": "^0.221.0",
@@ -37,6 +38,7 @@
     "ioredis": "^5",
     "neverthrow": "catalog:",
     "postgres": "^3",
+    "unleash-client": "^6.11.1",
     "winston": "^3.19.0",
     "zod": "catalog:"
   },
