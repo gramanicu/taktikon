@@ -6,6 +6,10 @@ const EnvSchema = z.object({
   // Optional until a module wires the DB/cache; tighten to required at that point.
   DATABASE_URL: z.string().url().optional(),
   REDIS_URL: z.string().url().optional(),
+  // Signing secret for auth sessions/tokens. Required to boot the auth module.
+  AUTH_SECRET: z.string().min(1).optional(),
+  // Public base URL of the API, used by auth for callback/reset links.
+  AUTH_URL: z.string().url().optional(),
 })
 
 export const env = EnvSchema.parse(process.env)

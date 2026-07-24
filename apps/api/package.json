@@ -13,11 +13,13 @@
     "test:watch": "vitest --project unit",
     "gen:openapi": "tsx scripts/gen-openapi.ts",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "node --env-file=../../.env --import tsx db/migrate.ts"
+    "db:migrate": "node --env-file=../../.env --import tsx db/migrate.ts",
+    "auth:generate": "pnpm dlx @better-auth/cli generate --config src/modules/identity/auth.gen-config.ts --output src/modules/identity/auth.table.ts -y"
   },
   "dependencies": {
     "@hono/node-server": "^1",
     "@hono/zod-openapi": "^1",
+    "better-auth": "^1.6.24",
     "drizzle-orm": "^0.44",
     "hono": "^4",
     "ioredis": "^5",
