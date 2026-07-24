@@ -10,6 +10,7 @@ const EnvSchema = z.object({
   AUTH_SECRET: z.string().min(1).optional(),
   // Public base URL of the API, used by auth for callback/reset links.
   AUTH_URL: z.string().url().optional(),
+  LOG_LEVEL: z.enum(['error', 'warn', 'info', 'debug']).default('info'),
 })
 
 export const env = EnvSchema.parse(process.env)

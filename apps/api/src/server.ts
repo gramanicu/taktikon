@@ -1,6 +1,7 @@
 import { serve } from '@hono/node-server'
 import { createApp } from './app.ts'
 import { env } from './env.ts'
+import { logger } from './lib/logger.ts'
 import { createAuth } from './modules/identity/auth.ts'
 
 // Composition root: build dependencies from the validated env, then assemble the app.
@@ -16,5 +17,5 @@ const { auth } = createAuth(
 const app = createApp({ authHandler: auth.handler })
 
 serve({ fetch: app.fetch, port: env.PORT }, (info) => {
-  console.log(`Taktikon API listening on http://localhost:${info.port}`)
+  logger.info('api.listening', { url: `http://localhost:${info.port}` })
 })
