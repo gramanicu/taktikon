@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+@source '../../src';
+
+/* Design tokens (@theme) and shadcn CSS variables are added in the design pass. */

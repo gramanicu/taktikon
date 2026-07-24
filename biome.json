@@ -6,7 +6,8 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": true
+    "ignoreUnknown": true,
+    "includes": ["**", "!**/*.css"]
   },
   "formatter": {
     "enabled": true,
@@ -41,6 +42,23 @@
   "overrides": [
     {
       "includes": ["**/*.config.ts", "**/*.config.js", "**/*.config.mjs"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "apps/web/src/app/**/page.tsx",
+        "apps/web/src/app/**/layout.tsx",
+        "apps/web/src/app/**/{loading,error,not-found,global-error,template,default}.tsx",
+        "apps/web/src/app/**/{sitemap,robots,manifest,opengraph-image,icon,apple-icon}.ts",
+        "**/*.stories.tsx",
+        "**/.storybook/*.ts"
+      ],
       "linter": {
         "rules": {
           "style": {

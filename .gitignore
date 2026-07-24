@@ -9,6 +9,19 @@ build/
 out/
 *.tsbuildinfo
 
+# ─── Next.js ─────────────────────────────────────────────────────────────────
+.next/
+next-env.d.ts
+
+# ─── Playwright ──────────────────────────────────────────────────────────────
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# ─── Storybook ───────────────────────────────────────────────────────────────
+storybook-static/
+
 # Generated OpenAPI contract (regenerated from the API via `gen:openapi`)
 apps/api/openapi.json
 
